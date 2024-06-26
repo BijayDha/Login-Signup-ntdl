@@ -26,7 +26,9 @@ export const UpdateTask = async (id, updatedField) => {
 
   return updateTask;
 };
+
 export const UpdateWholeTask = async (id, updatedTask) => {
+  console.log(updatedTask, "in model");
   const updateTask = await Task.findByIdAndUpdate(id, updatedTask, {
     new: true,
   });

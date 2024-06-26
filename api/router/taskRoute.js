@@ -4,6 +4,7 @@ import {
   deleteTask,
   getTask,
   UpdateTask,
+  UpdateWholeTask,
 } from "../mongodb/model/taskModel.js";
 
 const taskRouter = express.Router();
@@ -64,10 +65,11 @@ taskRouter.patch("/:id", async (req, res) => {
   }
 });
 //Put
-taskRouter.patch("/:id", async (req, res) => {
+taskRouter.put("/:id", async (req, res) => {
   const { id } = req.params;
   // console.log("id", id);
   const updatedTask = req.body;
+  console.log(updatedTask, "in route");
 
   try {
     const Task = await UpdateWholeTask(id, updatedTask);
